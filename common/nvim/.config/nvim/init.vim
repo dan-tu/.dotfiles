@@ -22,7 +22,7 @@ set relativenumber " Relative line numbers
 set nu " Display the absolute line number next to relative line number
 set backspace=indent,eol,start
 " Performance cost :(
-set updatetime=100
+set updatetime=300
 set foldmethod=syntax
 set foldlevelstart=3
 set signcolumn=yes
