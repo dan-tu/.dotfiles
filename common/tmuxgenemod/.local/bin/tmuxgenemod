@@ -1,0 +1,17 @@
+#!/bin/bash
+if ! tmux has-session -t genemod; then
+    tmux new -s genemod -d
+    tmux rename-window -t 0 dev
+    tmux new-window -n host
+
+    tmux split-window -t genemod:host -v
+    tmux split-window -t genemod:host -h
+
+    tmux send-keys -t genemod:host.0 'tobe && conda activate genemod && python manage.py runserver' Enter
+    tmux send-keys -t genemod:host.1 'tofe && yarn start' Enter
+    tmux send-keys -t genemod:host.2 'toyjs && git pull && yarn && yarn start' Enter
+
+    tmux select-window -t dev
+    tmux send-keys -t genemod:dev 'conda activate genemod' Enter
+fi
+tmux attach -t genemod
