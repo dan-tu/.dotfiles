@@ -1,3 +1,4 @@
-require('lspsetup')
-require('settings')
-require('plugins')
+require 'keymaps'
+require 'lsp'
+require 'settings'
+require 'plugins'

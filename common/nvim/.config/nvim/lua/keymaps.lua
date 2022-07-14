@@ -43,6 +43,7 @@ map('n', '<leader><space>', ':noh<cr>', {noremap=true})
 
 -- fzf
 vim.env.FZF_DEFAULT_OPTS = "--layout=reverse"
-map('n', '<leader>f', ':GFiles<cr>', {noremap=true}) -- Git files
-map('n', '<leader>F', ':Files<cr>', {noremap=true}) -- All files
+map('n', '<leader>f', ':GFiles<cr>', {}) -- Git files
+map('n', '<leader>F', ':Files<cr>', {}) -- All files
 
+-- Diagnostics

@@ -19,15 +19,15 @@ o.number = true
 o.updatetime = 300
 
 -- Window-local config
-wo.wrap = false
-wo.relativenumber = true
-wo.colorcolumn = "80"
-wo.cursorline = true
+o.wrap = false
+o.relativenumber = true
+o.colorcolumn = "80"
+o.cursorline = true
 
 -- Buffer-local config
-bo.smartindent = true
-bo.tabstop = 4
-bo.softtabstop = 4
-bo.expandtab = true
-bo.shiftwidth = 4
-bo.syntax = "ON"
+o.smartindent = true
+o.tabstop = 4
+o.softtabstop = 4
+o.expandtab = true
+o.sw = 4
+o.syntax = "ON"
