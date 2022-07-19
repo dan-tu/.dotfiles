@@ -1,4 +1,4 @@
-require 'keymaps'
-require 'lsp'
 require 'settings'
+require 'keymaps'
 require 'plugins'
+require 'lsp'
