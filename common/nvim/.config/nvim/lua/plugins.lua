@@ -19,6 +19,13 @@ require('packer').startup(function()
         config = function() require("nvim-autopairs").setup {} end
     }
     use 'tpope/vim-surround'
+    use {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            require("null-ls").setup()
+        end,
+        requires = { "nvim-lua/plenary.nvim" },
+    }
 
     -- File explorer 
     use 'scrooloose/nerdtree'
