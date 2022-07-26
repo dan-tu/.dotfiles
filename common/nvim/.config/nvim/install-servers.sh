@@ -1,2 +1,1 @@
-yarn global add typescript typescript-language-server
-yarn global add pyright
+yarn global add typescript typescript-language-server pyright eslint_d
