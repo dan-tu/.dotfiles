@@ -60,3 +60,23 @@ require('packer').startup(function()
     }
 
 end)
+
+require("telescope").setup({
+    defaults = {
+        mappings = {
+            i = {
+                ["<C-j>"] = "move_selection_next",
+                ["<C-k>"] = "move_selection_previous"
+            }
+        },
+        layout_config = {
+            horizontal = {
+                prompt_position = "top",
+                width = 0.7,
+                height = 0.6
+            }
+        },
+        sorting_strategy = "ascending"
+    }
+})
+

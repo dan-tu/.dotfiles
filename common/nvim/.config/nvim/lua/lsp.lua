@@ -100,9 +100,7 @@ local LspFormattingGroup = vim.api.nvim_create_augroup("LspFormatting", {})
 require("null-ls").setup({
     sources = {
         require("null-ls").builtins.diagnostics.eslint_d,
-        require("null-ls").builtins.formatting.eslint_d,
-        -- prettier usually gets run alongside eslint
-        -- require("null-ls").builtins.formatting.prettierd
+        require("null-ls").builtins.formatting.prettierd
     },
     -- you can reuse a shared lspconfig on_attach callback here
     on_attach = function(client, bufnr)

@@ -43,6 +43,7 @@ map('n', '<leader><space>', ':noh<cr>', {noremap=true})
 
 -- fzf
 vim.env.FZF_DEFAULT_OPTS = "--layout=reverse"
-map('n', '<leader>f', ':Telescope find_files<cr>', {}) -- Git files
-
--- Diagnostics
+map('n', '<leader>ff', ':Telescope find_files<cr>', {noremap=true})
+map('n', '<leader>fg', ':Telescope live_grep<cr>', {noremap=true})
+map('n', '<leader>fc', ':Telescope current_buffer_fuzzy_find<cr>', {noremap=true})
+map('n', '<leader>fb', ':Telescope buffers<cr>', {noremap=true})
