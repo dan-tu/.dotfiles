@@ -1,1 +1,1 @@
-yarn global add typescript typescript-language-server pyright eslint_d
+yarn global add typescript typescript-language-server pyright eslint_d @fsouza/prettierd
