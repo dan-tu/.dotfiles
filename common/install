@@ -1,9 +1,7 @@
 #!/bin/bash
-# Hopefully you named it .dotfiles...
-pushd ~/.dotfiles/common
+# Expected to run this within the .dotfiles/common folder
 for folder in $(ls -d */)
 do
     stow -D $folder
     stow -t ~/ $folder
 done
-popd
