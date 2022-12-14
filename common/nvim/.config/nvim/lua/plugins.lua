@@ -59,6 +59,9 @@ require('packer').startup(function()
         requires = {{'nvim-lua/plenary.nvim'}}
     }
 
+
+    use 'github/copilot.vim'
+
 end)
 
 require("telescope").setup({

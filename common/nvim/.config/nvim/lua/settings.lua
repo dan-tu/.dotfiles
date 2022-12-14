@@ -31,3 +31,6 @@ o.softtabstop = 4
 o.expandtab = true
 o.sw = 4
 o.syntax = "ON"
+
+-- Github Copilot Mapping
+o.copilot_no_tab_map = true

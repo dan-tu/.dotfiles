@@ -47,3 +47,6 @@ map('n', '<leader>ff', ':Telescope find_files<cr>', {noremap=true})
 map('n', '<leader>fg', ':Telescope live_grep<cr>', {noremap=true})
 map('n', '<leader>fc', ':Telescope current_buffer_fuzzy_find<cr>', {noremap=true})
 map('n', '<leader>fb', ':Telescope buffers<cr>', {noremap=true})
+
+-- Copilot
+map('i', '<silent><script><expr> <C-m>', ':lua require"copilot".Accept("")', {noremap=true})
