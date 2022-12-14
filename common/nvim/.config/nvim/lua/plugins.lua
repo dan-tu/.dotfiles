@@ -12,6 +12,19 @@ require('packer').startup(function()
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
+    -- lsp status visualizer
+    use({
+        "j-hui/fidget.nvim",
+        config = function()
+            require("fidget").setup()
+        end
+    })
+
+    -- Markdown preview
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 
     use 'tpope/vim-commentary' -- Comment/uncomment
     use {
