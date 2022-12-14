@@ -45,54 +45,63 @@ cmp.setup({
 
 })
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require("lspconfig")
+function defaultOnAttach() 
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
+    vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0})
+    vim.keymap.set("n", "rn", vim.lsp.buf.rename, {buffer=0})
+    vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, {buffer=0})
+    vim.keymap.set("n", "<leader>dN", vim.diagnostic.goto_prev, {buffer=0})
+end
+
 -- tsserver
 lspconfig.tsserver.setup{
     capabilities=capabtilities,
     on_attach = function(client) 
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
-        vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0})
-        vim.keymap.set("n", "rn", vim.lsp.buf.rename, {buffer=0})
-        vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, {buffer=0})
-        vim.keymap.set("n", "<leader>dN", vim.diagnostic.goto_prev, {buffer=0})
-
+        defaultOnAttach()
         client.server_capabilities.documentFormattingProvider = false
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
     end,
 }
 
 -- pyright
 lspconfig.pyright.setup{
     capabilities=capabtilities,
-    on_attach = function() 
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
-        vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0})
-        vim.keymap.set("n", "rn", vim.lsp.buf.rename, {buffer=0})
-        vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, {buffer=0})
-        vim.keymap.set("n", "<leader>dN", vim.diagnostic.goto_prev, {buffer=0})
-    end,
+    on_attach = defaultOnAttach,
 }
 
 -- lua
 lspconfig.sumneko_lua.setup{
     capabilities=capabtilities,
-    on_attach = function() 
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
-        vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0})
-        vim.keymap.set("n", "rn", vim.lsp.buf.rename, {buffer=0})
-        vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, {buffer=0})
-        vim.keymap.set("n", "<leader>dN", vim.diagnostic.goto_prev, {buffer=0})
-    end,
+    on_attach = defaultOnAttach,
+}
+
+-- rust
+lspconfig.rust_analyzer.setup{
+    capabilities=capabilities,
+    settings={
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    },
+    on_attach = defaultOnAttach
 }
 
 -- Auto formatting
