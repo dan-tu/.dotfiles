@@ -13,7 +13,6 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/plenary.nvim'}}
     })
-
     -- Syntax tree
     use ({
         'nvim-treesitter/nvim-treesitter',
@@ -68,6 +67,7 @@ return require('packer').startup(function(use)
         'windwp/nvim-autopairs',
         config = function() require("nvim-autopairs").setup {} end
     }
+    use 'windwp/nvim-ts-autotag'
 
     -- use {
     --     'mattn/emmet-vim',
