@@ -41,10 +41,9 @@ lsp.configure('rust_analyzer', {
 
 
 local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-    ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item, cmp_select),
-    ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item, cmp_select),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
     -- Starts completion
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(),
