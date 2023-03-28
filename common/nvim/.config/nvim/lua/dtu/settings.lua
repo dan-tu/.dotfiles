@@ -4,7 +4,6 @@ vim.opt.guicursor = ""
 -- Relative and absolute line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
-
 -- Tabs
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -29,4 +28,6 @@ vim.opt.showmatch = true
 vim.opt.cursorline = true
 
 -- Folding
-vim.opt.foldmethod = "syntax"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
