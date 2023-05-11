@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
     use 'morhetz/gruvbox'
     use 'sainnhe/gruvbox-material'
     use 'shaunsingh/nord.nvim'
-    use 'github/copilot.vim' -- Yup...
+    -- use 'github/copilot.vim' -- Yup...
     use 'tpope/vim-commentary' -- Comment/uncomment
     use 'tpope/vim-surround'
 
@@ -88,7 +88,11 @@ return require('packer').startup(function(use)
     --     end
     -- }
 
-    use 'Exafunction/codeium.vim'
+    use {'Exafunction/codeium.vim', config = function ()
+        vim.keymap.set('i', '<c-]>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+        vim.keymap.set('i', '<c-[>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+        vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+    end }
 
 
     if packer_bootstrap then
